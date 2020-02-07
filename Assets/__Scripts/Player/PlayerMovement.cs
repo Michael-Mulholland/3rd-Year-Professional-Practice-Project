@@ -9,16 +9,20 @@ public class PlayerMovement : MonoBehaviour
 
     // speed in which our player will move upwards
     public float upwardSpeed;
-    public float speed = 10f;
+    [SerializeField] public float speed = 2f;
 
     void Start()
     {
         // gets run once
         rb = GetComponent<Rigidbody>();
+        //            rb.AddForce(0, 0, 1, ForceMode.Impulse);
+
     }
 
 private void Update() {
     //rb.velocity = new Vector3 (0, 0, speed);
+             transform.Translate(Vector3.forward * Time.deltaTime * speed);
+
 }
 
     void FixedUpdate(){
@@ -56,6 +60,12 @@ private void Update() {
             Debug.Log("D key was pressed.");
             rb.AddForce(speed, 0, 0, ForceMode.Impulse);
         }
+        
+        // moves cube to the right
+        if (Input.GetKey(KeyCode.W))
+        {
+            Debug.Log("D key was pressed.");
+        }       
     }
 
     // Update is called once per frame
