@@ -1,0 +1,19 @@
+html,
+
+body {
+    margin: 0;
+    padding: 1%;
+    width: 100%;
+}
+
+/*Slide Show*/
+.carousel{
+	/* top and bottom margins are 10px - right and left margins are 5px */
+	margin: 5% 25%;
+	width: 50%;
+}
+
+.container {
+    padding: 20px;
+
+ }
