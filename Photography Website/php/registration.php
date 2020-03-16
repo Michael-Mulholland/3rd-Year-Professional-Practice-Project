@@ -18,7 +18,7 @@ $num = mysqli_num_rows($result);
 if($num == 1){
 	echo "Username Already Taken";
 }else{
-	$reg = " insert into login_details(username, password) values ('$username', '$password')";
+	$reg = "INSERT INTO login_details(username, password) values ('$username', '$password')";
 	mysqli_query($con, $reg);
 	header('location:../index.html');
 }

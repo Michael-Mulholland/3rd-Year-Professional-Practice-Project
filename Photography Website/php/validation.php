@@ -16,8 +16,6 @@ $result = mysqli_query($con, $s);
 $num = mysqli_num_rows($result);
 
 if($num == 1){
-	$_SESSION['name'] = $username;
-	$_SESSION['logged_in'] = true;
 	header('location:../index.html');
 }else{
 	header('location:../websitePages/contact.html');
