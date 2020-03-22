@@ -22,7 +22,9 @@ $consent = mysqli_real_escape_string($link, $_REQUEST['consent']);
 // Attempt insert query execution
 $sql = "INSERT INTO contactdetails(full_name, email, phone_number, venue, number_guests, event_date, comments, consent) VALUES('$full_name', '$email', '$phone_number', '$venue', '$number_guests', '$event_date', '$comments', '$consent')";
 if(mysqli_query($link, $sql)){
-    echo "Records added successfully.";
+    //echo "Records added successfully.";
+	header("Location: ../index.html");
+    exit;
 } else{
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }

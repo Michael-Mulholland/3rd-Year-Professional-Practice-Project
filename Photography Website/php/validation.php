@@ -16,7 +16,9 @@ $result = mysqli_query($con, $s);
 $num = mysqli_num_rows($result);
 
 if($num == 1){
-	header('location:../index.html');
+	echo "<script type='text/javascript'>alert('Login Successful'); window.location.href = '../index.html';</script>";
+
+	//header('location:../index.html');
 }else{
 	header('location:../websitePages/contact.html');
 }

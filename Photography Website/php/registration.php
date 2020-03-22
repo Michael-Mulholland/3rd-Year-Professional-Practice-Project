@@ -16,11 +16,14 @@ $result = mysqli_query($con, $s);
 $num = mysqli_num_rows($result);
 
 if($num == 1){
-	echo "Username Already Taken";
+	//echo "Username Already Taken";
+	echo "<script type='text/javascript'>alert('Username Already Taken'); window.location.href = '../websitePages/register.html';</script>";
+	//header("Location: ../websitePages/register.html");
+    exit;
 }else{
 	$reg = "INSERT INTO login_details(username, password) values ('$username', '$password')";
 	mysqli_query($con, $reg);
-	header('location:../index.html');
+	header('location: ../index.html');
 }
 
 ?>
