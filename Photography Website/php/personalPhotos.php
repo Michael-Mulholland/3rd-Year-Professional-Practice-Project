@@ -1,5 +1,9 @@
-<!doctype html>
+<?php
+session_start();
+$username = $_GET['username'];
+?>
 
+<!doctype html>
 <html lang="en">
 
 	<head>
@@ -14,13 +18,13 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-		<title>Information</title>
+		<title>Register</title>		
 	</head>
 
 	<body>
 		<div class="container-fluid">
-
-			<!-- Start of navigation bar -->			
+		
+			<!-- Start of navigation bar -->
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 				
 				<a class="navbar-brand" href="../index.html"><img src="https://i.imgur.com/T4CfOTi.jpg" width="40" height="40" alt=""> Photography Website</a>
@@ -38,27 +42,27 @@
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link" href="bestOfCollection.html">Portfolio</a>
+							<a class="nav-link" href="../websitePages/bestOfCollection.html">Portfolio</a>
 						</li>
 
-						<li class="nav-item dropdown  active">
+						<li class="nav-item dropdown active">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" 
 								aria-haspopup="true" aria-expanded="false">Information </a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item  active" href="pricingInfo.html">Pricing</a>
-								<a class="dropdown-item" href="faq.html">FAQ</a>
+								<a class="dropdown-item" href="../websitePages/pricingInfo.html">Pricing</a>
+								<a class="dropdown-item active" href="../websitePages/faq.html">FAQ</a>
 							</div>
 						</li>
 
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">The Experience</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="reviews.html">Reviews</a>
+								<a class="dropdown-item" href="../websitePages/reviews.html">Reviews</a>
 							</div>
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link" href="aboutMe.html">About Me</a>
+							<a class="nav-link" href="../websitePages/aboutMe.html">About Me</a>
 						</li>
 					</ul>
 				</div>
@@ -66,69 +70,76 @@
 				<div class="collapse navbar-collapse" id="navbarNavDropdown" >
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link" href="contact.html">Contact</a>
+							<a class="nav-link" href="../websitePages/contact.html">Contact</a>
 						</li>				
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Photos</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">									
-								<a class="dropdown-item" href="register.html">Register</a>
-								<a class="dropdown-item" href="login.html">Login</a>
+								<a class="dropdown-item" href="../websitePages/register.html">Register</a>
+								<a class="dropdown-item" href="../websitePages/login.html">Login</a>
 								<a class="dropdown-item" href="php/logout.php">Logout</a>
 							</div>
 						</li>
 					</ul>
-				</div>	
+				</div>
 			</nav>
 			<!-- End of navigation bar -->
 			
 			<div class="titles">
-				<br><br><p>PRICING<br><hr></p>
-			</div>
-			
-			<!-- Card Bootstrap - pricing of packages -->
-			<div class="card-group">
-				<div class="card border-0">
-					<div class="card-body">
-						<h5 class="card-title">PORTRAIT SESSIONS</h5>
-						<img class="card-img-top" src="https://i.imgur.com/cjQLsAz.jpg" alt="Portrait Sessions">
-						<p class="card-text"><br>The package includes, a 2-hour portrait session, with a collection
-						of fully edited digital files, including rights to the images, tell your love story. <br> Starting at €400</p>
-					</div>
-				</div>
-				
-				<div class="card border-0">
-					<div class="card-body">
-					<h5 class="card-title">WEDDING STORYTELLING</h5>
-					<img class="card-img-top" src="https://i.imgur.com/V771UMU.jpg" alt="Wedding Storytelling">
-						<p class="card-text"><br>The package includes, and a collection of fully edited digital 
-						files in color and bw that includes the rights to the images, to tell your wedding day story.<br> Starting at €1,500</p>
-					</div>
-				</div>
-				
-				<div class="card border-0">
-					<div class="card-body">
-						<h5 class="card-title">ELOPEMENT STORYTELLING</h5>
-						<img class="card-img-top" src="https://i.imgur.com/wLvKGFI.jpg" alt="Elopement Storytelling">
-						<p class="card-text"><br>Let the adventure begin! The package includes a collection of 
-						fully edited digital files, including the rights to the images, to tell your love story. <br> Starting at €800</p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="card mb-6 border-0" style="max-width: 700px;" >
-				<div class="row">
-					<div class="col-md-12">
-						<div class="card-body">
-							<h5 class="card-title">INTERESTED?<hr></h5>
-							<p class="card-text">Don't hesitate, get in touch now!</p>
-							<a href="contact.html" class="btn btn-light">Let's Talk</a>
-						</div>
-					</div>
-				</div>							
+				<br><br><p>PERSONAL PHOTOS<br><hr><br></p>
 			</div>	
 			
-		</div>
+			<!---->
+			<div class="gallery-container">
+				<?php
+	
+					ini_set('display_errors', 1);
+					ini_set('display_startup_errors', 1);
+					error_reporting(E_ALL);
 
+					
+					echo "Hello $username";
+			
+					// include the file once
+					include_once 'dbh.php';
+	
+					//if($username == "ld.username"){
+						// query
+						$sql = "SELECT ld.username, cp.userID, cp.imgFullNameGallery FROM login_details ld JOIN customerPhotos cp ON ld.id = cp.userID 
+							where '$username' = ld.username
+							ORDER BY cp.orderGallery DESC;";
+					//}
+					// prepared statement
+					$stmt = mysqli_stmt_init($conn);
+	
+					// checks to see if the prepared statement works (the connection and above SELECT query)
+					if (!mysqli_stmt_prepare($stmt, $sql)) {
+						// error message
+						echo "SQL statement failed!";
+					} else {
+						// execute the sql statement
+						mysqli_stmt_execute($stmt);
+	
+						// get the result from the above statement
+						$result = mysqli_stmt_get_result($stmt);
+	
+						// loop through the rows in the database
+						//mysqli_fetch_assoc
+						while ($row = mysqli_fetch_assoc($result)) {
+							// display the results
+							echo '
+								<a href="#">
+								<div style="background-image: url(../images/gallery/'.$row["imgFullNameGallery"].');"> </div>
+								<h3>'.$row["username"].'</h3>
+								<p>'.$row["userID"].'</p>
+							</a>';	
+						}
+					}
+				?>
+			</div>
+			<!---->
+		</div>
+		
 		<!-- jQuery first > -->
 		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
 			integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -137,6 +148,6 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 			crossorigin="anonymous"></script>
+			
 	</body>
-
 </html>

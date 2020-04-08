@@ -2,25 +2,33 @@
 
 session_start();
 
-$con = mysqli_connect('localhost', 'root', 'root', 'customers'); //, 'table name'
+if(isset($_POST['username'])){
+	$username = $_POST['username'];
+	$_SESSION['username'] = $username;
 
-mysqli_select_db($con, 'login_details');
+	$con = mysqli_connect('localhost', 'root', 'root', 'customers'); //, 'table name'
 
-$username = $_POST['username'];
-$password = $_POST['password'];
-
-$s = " select * from login_details where username = '$username' && password = '$password'";
-
-$result = mysqli_query($con, $s);
-
-$num = mysqli_num_rows($result);
-
-if($num == 1){
-	echo "<script type='text/javascript'>alert('Login Successful'); window.location.href = '../index.html';</script>";
-
-	//header('location:../index.html');
-}else{
-	header('location:../websitePages/contact.html');
+	mysqli_select_db($con, 'login_details');
+	
+	
+	$password = $_POST['password'];
+	
+	$s = " select * from login_details where username = '$username' && password = '$password'";
+	
+	$result = mysqli_query($con, $s);
+	
+	$num = mysqli_num_rows($result);
+	
+	if($username == "gmit") {
+		echo "<script type='text/javascript'> window.location.href = 'adminPage.php';</script>";
+	}
+	else if($num == 1){
+		header('location: personalPhotos.php?username=' . $username);
+	}
+	else{
+		header('Refresh:3; url=../websitePages/login.html');
+		echo nl2br("You have entered the wrong username or password. \n Please try again.");
+	}
 }
 
 ?>
