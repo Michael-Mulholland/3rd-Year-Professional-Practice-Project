@@ -1,6 +1,9 @@
 <?php
-session_start();
-$username = $_GET['username'];
+	// start php session
+	session_start();
+	
+	//  get the username form validation.php and store it
+	$username = $_GET['username'];
 ?>
 
 <!doctype html>
@@ -18,7 +21,7 @@ $username = $_GET['username'];
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-		<title>Register</title>		
+		<title>Personal Photos</title>		
 	</head>
 
 	<body>
@@ -45,12 +48,12 @@ $username = $_GET['username'];
 							<a class="nav-link" href="../websitePages/bestOfCollection.html">Portfolio</a>
 						</li>
 
-						<li class="nav-item dropdown active">
+						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" 
 								aria-haspopup="true" aria-expanded="false">Information </a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 								<a class="dropdown-item" href="../websitePages/pricingInfo.html">Pricing</a>
-								<a class="dropdown-item active" href="../websitePages/faq.html">FAQ</a>
+								<a class="dropdown-item" href="../websitePages/faq.html">FAQ</a>
 							</div>
 						</li>
 
@@ -89,26 +92,25 @@ $username = $_GET['username'];
 				<br><br><p>PERSONAL PHOTOS<br><hr><br></p>
 			</div>	
 			
-			<!---->
 			<div class="gallery-container">
 				<?php
-	
+
+					// To display all PHP errors
+    				// https://www.tutorialspoint.com/how-to-display-errors-in-php-file
 					ini_set('display_errors', 1);
 					ini_set('display_startup_errors', 1);
 					error_reporting(E_ALL);
-
-					
-					echo "Hello $username";
 			
-					// include the file once
+                	// get database details (servername, username, password, dbname)
 					include_once 'dbh.php';
 	
-					//if($username == "ld.username"){
-						// query
-						$sql = "SELECT ld.username, cp.userID, cp.imgFullNameGallery FROM login_details ld JOIN customerPhotos cp ON ld.id = cp.userID 
-							where '$username' = ld.username
-							ORDER BY cp.orderGallery DESC;";
-					//}
+					// query
+					$sql = "SELECT ld.fullname, cp.userID, cp.imgFullNameGallery 
+						FROM login_details ld 
+						JOIN customerPhotos cp 
+						ON '$username' = ld.username 
+						where ld.id = cp.userID;";
+	
 					// prepared statement
 					$stmt = mysqli_stmt_init($conn);
 	
@@ -127,17 +129,17 @@ $username = $_GET['username'];
 						//mysqli_fetch_assoc
 						while ($row = mysqli_fetch_assoc($result)) {
 							// display the results
+							// image, full name and user ID
 							echo '
 								<a href="#">
-								<div style="background-image: url(../images/gallery/'.$row["imgFullNameGallery"].');"> </div>
-								<h3>'.$row["username"].'</h3>
+								<div style="background-image: url(../images/gallery/'.$row["imgFullNameGallery"].');"></div>
+								<h3>'.$row["fullname"].'</h3>
 								<p>'.$row["userID"].'</p>
 							</a>';	
 						}
 					}
 				?>
 			</div>
-			<!---->
 		</div>
 		
 		<!-- jQuery first > -->
@@ -148,6 +150,6 @@ $username = $_GET['username'];
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 			crossorigin="anonymous"></script>
-			
+
 	</body>
 </html>

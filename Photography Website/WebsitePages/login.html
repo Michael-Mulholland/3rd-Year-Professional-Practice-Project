@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!doctype html>
 <html lang="en">
 
@@ -44,12 +40,12 @@ session_start();
 							<a class="nav-link" href="bestOfCollection.html">Portfolio</a>
 						</li>
 
-						<li class="nav-item dropdown active">
+						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" 
 								aria-haspopup="true" aria-expanded="false">Information </a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 								<a class="dropdown-item" href="pricingInfo.html">Pricing</a>
-								<a class="dropdown-item active" href="faq.html">FAQ</a>
+								<a class="dropdown-item" href="faq.html">FAQ</a>
 							</div>
 						</li>
 
@@ -75,23 +71,33 @@ session_start();
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Photos</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">									
 								<a class="dropdown-item" href="register.html">Register</a>
-								<a class="dropdown-item" href="login.html">Login</a>
-								<a class="dropdown-item" href="php/logout.php">Logout</a>
+								<a class="dropdown-item active" href="login.html">Login</a>
+								<a class="dropdown-item" href="logout.html">Logout</a>
 							</div>
 						</li>
 					</ul>
 				</div>
-			</nav>
+			</nav><hr><br>
 			<!-- End of navigation bar -->
-		
-			<div class="titles">
-				<br><br><p>LOGIN<br><hr><br></p>
+
+			<div class="card mb-6 border-0" style="max-width: 700px;" >
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card-body">
+							<h5 class="card-title">LOGIN<hr></h5>
+							<p class="card-text">
+								Login using your username and password to view all photographs of your special day.
+							</p>
+						</div>
+					</div>
+				</div>
 			</div>
 			
 			<!-- Login starts here -->
 			<div class="card mb-6 border-0" style="max-width: 700px;" >
 				<div class="row">
-					<div class="col-md-12">
+					<div class="col-md-2"></div>
+					<div class="col-md-8">
 						<div class="card-body">
 							<h5 class="card-title">Login<hr></h5>
 							<form action="../php/validation.php" method="post">
@@ -103,7 +109,7 @@ session_start();
 									<label> Password </label>
 									<input type="password" name="password" class="form-control" required>
 								</div>
-								<button type="submit" class="btn btn-light"> Login </button>
+								<button type="submit" name="submit" class="btn btn-light"> Login </button>
 							</form>
 						</div>
 					</div>
