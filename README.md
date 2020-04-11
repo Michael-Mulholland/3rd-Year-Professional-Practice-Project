@@ -6,7 +6,7 @@
 
 This repository is set up to handle our Year 3 Professional Practice in IT Project.
 
-The two contributors for this repo will be Michael MulHolland and Kevin Flanagan.
+The two contributors for this repo will be Micheal MulHolland and Kevin Flanagan.
 
 This project has been set to show how well we can work as a team in a simulated work 
 environment.
