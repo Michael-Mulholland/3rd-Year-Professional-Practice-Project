@@ -2,7 +2,7 @@
 
 ## Documentation Headings
 
-* Introduction
+# Introduction
 
 This repository is set up to handle our Year 3 Professional Practice in IT Project.
 
@@ -15,7 +15,9 @@ We decided after some period of discussion to build a Photographic website desig
 to handle a client's storage of their images on their special day. This Website will 
 use a relational database as storage and require a Login to view their images.   
 
-* System Requirements
+# System Requirements
+
+The website will be built using a relational Database.
 
 
 * Technology Used and Why
