@@ -31,7 +31,7 @@
 			<!-- Start of navigation bar -->
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 				
-				<a class="navbar-brand" href="../index.html"><img src="https://i.imgur.com/T4CfOTi.jpg" width="40" height="40" alt=""> Photography Website</a>
+                <a class="navbar-brand" href="../index.html"><img src="https://i.imgur.com/6Qv72Lj.png" width="220" height="40" alt=""></a>
 				
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
 					aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,15 +53,9 @@
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" 
 								aria-haspopup="true" aria-expanded="false">Information </a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="../websitePages/reviews.html">Kind Words</a>
 								<a class="dropdown-item" href="../websitePages/pricingInfo.html">Pricing</a>
 								<a class="dropdown-item" href="../websitePages/faq.html">FAQ</a>
-							</div>
-						</li>
-
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">The Experience</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="../websitePages/reviews.html">Reviews</a>
 							</div>
 						</li>
 
@@ -71,21 +65,20 @@
 					</ul>
 				</div>
 				
-				<div class="collapse navbar-collapse" id="navbarNavDropdown" >
-					<ul class="navbar-nav">
-						<li class="nav-item">
-							<a class="nav-link" href="../websitePages/contact.html">Contact</a>
-						</li>				
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Photos</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">									
-								<a class="dropdown-item" href="../websitePages/register.html">Register</a>
-								<a class="dropdown-item" href="../websitePages/login.html">Login</a>
-								<a class="dropdown-item" href="../websitePages/logout.html">Logout</a>
-							</div>
-						</li>
-					</ul>
-				</div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown" >
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../websitePages/contact.html">Contact</a>
+                        </li>		
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="../websitePages/register.html">Register</a>
+                        </li>	
+                        <li class="nav-item">
+                            <a class="nav-link" href="../websitePages/login.html">My Photos</a>
+                        </li>
+                    </ul>
+			    </div>
 			</nav>
 			<!-- End of navigation bar -->
 
@@ -153,13 +146,12 @@
                         }
                     ?>
                     
-                </table>
+                </table><br>
  			    <!-- end of table -->               
                 
                 <!-- start of upload images form --> 
 				<?php
-					echo '<div class="gallery-upload">
-					<h2>Upload</h2>
+					echo '<div class="gallery-upload text-center">
 						<form action="gallery-upload.php" method="POST" enctype="multipart/form-data">
 							<input type="text" name="userID" placeholder="User ID...">
 							<input type="file" name="file">

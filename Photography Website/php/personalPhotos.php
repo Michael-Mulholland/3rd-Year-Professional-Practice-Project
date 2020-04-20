@@ -30,8 +30,8 @@
 			<!-- Start of navigation bar -->
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 				
-				<a class="navbar-brand" href="../index.html"><img src="https://i.imgur.com/T4CfOTi.jpg" width="40" height="40" alt=""> Photography Website</a>
-				
+				<a class="navbar-brand" href="../index.html"><img src="https://i.imgur.com/6Qv72Lj.png" width="220" height="40" alt=""></a>
+
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
 					aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -52,15 +52,9 @@
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" 
 								aria-haspopup="true" aria-expanded="false">Information </a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item" href="../websitePages/reviews.html">Kind Words</a>
 								<a class="dropdown-item" href="../websitePages/pricingInfo.html">Pricing</a>
 								<a class="dropdown-item" href="../websitePages/faq.html">FAQ</a>
-							</div>
-						</li>
-
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">The Experience</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="../websitePages/reviews.html">Reviews</a>
 							</div>
 						</li>
 
@@ -70,21 +64,20 @@
 					</ul>
 				</div>
 				
-				<div class="collapse navbar-collapse" id="navbarNavDropdown" >
-					<ul class="navbar-nav">
-						<li class="nav-item">
-							<a class="nav-link" href="../websitePages/contact.html">Contact</a>
-						</li>				
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Photos</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">									
-								<a class="dropdown-item" href="../websitePages/register.html">Register</a>
-								<a class="dropdown-item" href="../websitePages/login.html">Login</a>
-								<a class="dropdown-item" href="php/logout.php">Logout</a>
-							</div>
-						</li>
-					</ul>
-				</div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown" >
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../websitePages/contact.html">Contact</a>
+                        </li>		
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="../websitePages/register.html">Register</a>
+                        </li>	
+                        <li class="nav-item">
+                            <a class="nav-link" href="../websitePages/login.html">My Photos</a>
+                        </li>
+                    </ul>
+			    </div>
 			</nav>
 			<!-- End of navigation bar -->
 			
@@ -92,53 +85,65 @@
 				<br><br><p>PERSONAL PHOTOS<br><hr><br></p>
 			</div>	
 			
-			<div class="gallery-container">
-				<?php
+			<div>
+				<div class="row no-gutters text-center">	
+					<div class="col-md-3">
+					</div>
+					<div class="col-md-6">
+						<?php echo 'Hey ' . $username . ', hope you enjoyed your special day as much as I did. Below is every photography that I took on the day. All the best and I hope I get to work for you again some day.'; ?>	
 
-					// To display all PHP errors
-    				// https://www.tutorialspoint.com/how-to-display-errors-in-php-file
-					ini_set('display_errors', 1);
-					ini_set('display_startup_errors', 1);
-					error_reporting(E_ALL);
-			
-                	// get database details (servername, username, password, dbname)
-					include_once 'dbh.php';
-	
-					// query
-					$sql = "SELECT ld.fullname, cp.userID, cp.imgFullNameGallery 
-						FROM login_details ld 
-						JOIN customerPhotos cp 
-						ON '$username' = ld.username 
-						where ld.id = cp.userID;";
-	
-					// prepared statement
-					$stmt = mysqli_stmt_init($conn);
-	
-					// checks to see if the prepared statement works (the connection and above SELECT query)
-					if (!mysqli_stmt_prepare($stmt, $sql)) {
-						// error message
-						echo "SQL statement failed!";
-					} else {
-						// execute the sql statement
-						mysqli_stmt_execute($stmt);
-	
-						// get the result from the above statement
-						$result = mysqli_stmt_get_result($stmt);
-	
-						// loop through the rows in the database
-						//mysqli_fetch_assoc
-						while ($row = mysqli_fetch_assoc($result)) {
-							// display the results
-							// image, full name and user ID
-							echo '
-								<a href="#">
-								<div style="background-image: url(../images/gallery/'.$row["imgFullNameGallery"].');"></div>
-								<h3>'.$row["fullname"].'</h3>
-								<p>'.$row["userID"].'</p>
-							</a>';	
+					</div>
+					<div class="col-md-3">
+					</div>
+				</div><br>
+
+				<div  class="gallery-container text-center">
+					<?php
+					
+						// To display all PHP errors
+						// https://www.tutorialspoint.com/how-to-display-errors-in-php-file
+						ini_set('display_errors', 1);
+						ini_set('display_startup_errors', 1);
+						error_reporting(E_ALL);
+				
+						// get database details (servername, username, password, dbname)
+						include_once 'dbh.php';
+		
+						// query
+						$sql = "SELECT cp.imgFullNameGallery 
+							FROM login_details ld 
+							JOIN customerPhotos cp 
+							ON '$username' = ld.username 
+							where ld.id = cp.userID;";
+		
+						// prepared statement
+						$stmt = mysqli_stmt_init($conn);
+		
+						// checks to see if the prepared statement works (the connection and above SELECT query)
+						if (!mysqli_stmt_prepare($stmt, $sql)) {
+							// error message
+							echo "SQL statement failed!";
+						} else {
+							// execute the sql statement
+							mysqli_stmt_execute($stmt);
+		
+							// get the result from the above statement
+							$result = mysqli_stmt_get_result($stmt);
+		
+
+							// loop through the rows in the database
+							//mysqli_fetch_assoc
+							while ($row = mysqli_fetch_assoc($result)) {
+								// display the results
+								// image, full name and user ID
+								echo '
+									<a>
+									<div style="background-image: url(../images/gallery/'.$row["imgFullNameGallery"].');"></div>
+								</a>';
+							}
 						}
-					}
-				?>
+					?>
+				</div>
 			</div>
 		</div>
 		
