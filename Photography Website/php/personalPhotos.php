@@ -111,7 +111,7 @@
 		
 						// query
 						$sql = "SELECT cp.imgFullNameGallery 
-							FROM login_details ld 
+							FROM register_details ld 
 							JOIN customerPhotos cp 
 							ON '$username' = ld.username 
 							where ld.id = cp.userID;";

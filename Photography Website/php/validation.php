@@ -24,7 +24,7 @@
 		$_SESSION['username'] = $username;
 
 		// query - gets the username and password from the database
-		$sql = " select * from login_details where username = '$username'";
+		$sql = " select * from register_details where username = '$username'";
 
 		// save the password entered in my the user
 		$password = $_POST['password'];

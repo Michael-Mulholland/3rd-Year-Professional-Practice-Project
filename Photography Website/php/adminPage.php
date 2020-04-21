@@ -116,7 +116,7 @@
                         include_once 'dbh.php';
 
                         // query
-                        $sql = "SELECT * FROM login_details;";
+                        $sql = "SELECT * FROM register_details;";
         
                         // prepared statement
                         $stmt = mysqli_stmt_init($conn);
