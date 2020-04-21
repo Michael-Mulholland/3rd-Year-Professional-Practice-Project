@@ -34,8 +34,10 @@
 
 		// checks to see if the prepared statement works (the connection and above SELECT query)
 		if(!mysqli_stmt_prepare($stmt, $sql)){
-			//  keeps the user on the login.php page
-			header("Location: login.php");
+			// message to inform the user that they have entered the wrong login details
+			echo "<script type='text/javascript'>alert('The details you have entered are incorrect. Please try again. '); 
+				window.location.href = '../websitePages/login.html';</script>";
+
             // Terminates execution of the script.
             exit();
 		}
@@ -57,15 +59,15 @@
 
 				// check if the password is true or false
 				if($passwordCheck == false){
-
-					// if False
-					// dispaly error message and keep the user on the login.php page
-					header("Location: login.php");
+					// message to inform the user that they have entered the wrong login details
+					echo "<script type='text/javascript'>alert('The details you have entered are incorrect. Please try again. '); 
+						window.location.href = '../websitePages/login.html';</script>";
+					
 					// Terminates execution of the script.
 					exit();						
 				}
 				else if ($passwordCheck == true){
-
+				
 					// if True
 					// check to see if the owner of the website is trying to login
 					if($username == "admin") {
@@ -79,13 +81,31 @@
 					}
 				}
 				else {
-					// dispaly error message and keep the user on the login.php page
-					header("Location: login.php");
+					// message to inform the user that they have entered the wrong login details
+					echo "<script type='text/javascript'>alert('The details you have entered are incorrect. Please try again. '); 
+						window.location.href = '../websitePages/login.html';</script>";
+
 					// Terminates execution of the script.
 					exit();							
 				}
 			}
+			else {
+				// message to inform the user that they have entered the wrong login details
+				echo "<script type='text/javascript'>alert('The details you have entered are incorrect. Please try again. '); 
+					window.location.href = '../websitePages/login.html';</script>";
+
+				// Terminates execution of the script.
+				exit();							
+			}
 		}
+	}
+	else {
+		// message to inform the user that they have entered the wrong login details
+		echo "<script type='text/javascript'>alert('The details you have entered are incorrect. Please try again. '); 
+			window.location.href = '../websitePages/login.html';</script>";
+
+		// Terminates execution of the script.
+		exit();							
 	}
 
 ?>
