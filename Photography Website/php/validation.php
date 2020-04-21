@@ -8,9 +8,10 @@
 
 		// To display all PHP errors
 		// https://www.tutorialspoint.com/how-to-display-errors-in-php-file
-		ini_set('display_errors', 1);
+		ini_set('display_errors', 'On');
 		ini_set('display_startup_errors', 1);
 		error_reporting(E_ALL);
+		set_error_handler("var_dump");
 
 		// include the file once - to connect to the database
 		include_once 'dbh.php';
@@ -23,7 +24,7 @@
 		$_SESSION['username'] = $username;
 
 		// query - gets the username and password from the database
-		$sql = " select * from login_details where username = '$username'";
+		$sql = " select * from register_details where username = '$username'";
 
 		// save the password entered in my the user
 		$password = $_POST['password'];
@@ -33,8 +34,10 @@
 
 		// checks to see if the prepared statement works (the connection and above SELECT query)
 		if(!mysqli_stmt_prepare($stmt, $sql)){
-			// error message and keeps the user on the login.html page
-			header("Location: ../websitePages/login.html");
+			// message to inform the user that they have entered the wrong login details
+			echo "<script type='text/javascript'>alert('The details you have entered are incorrect. Please try again. '); 
+				window.location.href = '../websitePages/login.html';</script>";
+
             // Terminates execution of the script.
             exit();
 		}
@@ -56,15 +59,15 @@
 
 				// check if the password is true or false
 				if($passwordCheck == false){
-
-					// if False
-					// dispaly error message and keep the user on the login.html page
-					header("Location: ../websitePages/login.html");
+					// message to inform the user that they have entered the wrong login details
+					echo "<script type='text/javascript'>alert('The details you have entered are incorrect. Please try again. '); 
+						window.location.href = '../websitePages/login.html';</script>";
+					
 					// Terminates execution of the script.
 					exit();						
 				}
 				else if ($passwordCheck == true){
-
+				
 					// if True
 					// check to see if the owner of the website is trying to login
 					if($username == "admin") {
@@ -78,13 +81,31 @@
 					}
 				}
 				else {
-					// dispaly error message and keep the user on the login.html page
-					header("Location: ../websitePages/login.html");
+					// message to inform the user that they have entered the wrong login details
+					echo "<script type='text/javascript'>alert('The details you have entered are incorrect. Please try again. '); 
+						window.location.href = '../websitePages/login.html';</script>";
+
 					// Terminates execution of the script.
 					exit();							
 				}
 			}
+			else {
+				// message to inform the user that they have entered the wrong login details
+				echo "<script type='text/javascript'>alert('The details you have entered are incorrect. Please try again. '); 
+					window.location.href = '../websitePages/login.html';</script>";
+
+				// Terminates execution of the script.
+				exit();							
+			}
 		}
+	}
+	else {
+		// message to inform the user that they have entered the wrong login details
+		echo "<script type='text/javascript'>alert('The details you have entered are incorrect. Please try again. '); 
+			window.location.href = '../websitePages/login.html';</script>";
+
+		// Terminates execution of the script.
+		exit();							
 	}
 
 ?>

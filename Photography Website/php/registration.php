@@ -15,15 +15,15 @@
 	// checks whether a variable is set, which means that it has to be declared and is not NULL.
 	if(isset($_POST['submit'])){
 
-		// check to see if any of the fields are empyt
+		// check to see if any of the fields are empty
 		if(empty($_POST['fullname']) || empty($_POST['emailAddress']) || empty($_POST['username']) || empty($_POST['password'])){
 			// error message if any of the fields are empty and keep the user on the same page
 			echo "<script type='text/javascript'>alert('All fields must be filled in.'); window.location.href = '../websitePages/register.html';</script>";
 
 		} else {
 
-			// gets conn(servername, user, password, dbname) and table name(login_details)
-			mysqli_select_db($conn, 'login_details');
+			// gets conn(servername, user, password, dbname) and table name(register_details)
+			mysqli_select_db($conn, 'register_details');
 
         	// The following data is protected from MySQLi Injection using MySQLi
         	// Escape user inputs for security - stop MySQLi Injection using mysqli_real_escape_string()
@@ -42,7 +42,7 @@
 			$_SESSION['fullname'] = $fullname;
 		
 			// SQL query
-			$query = " select * from login_details where username = '$username'";
+			$query = " select * from register_details where username = '$username'";
 		
 			// executes the query in the database
 			// If the user enters a username that's already in the database, TRUE will be returned
@@ -61,7 +61,7 @@
 			}else{
 
 				// if the username is unique, enter all details into the database
-				$reg = "INSERT INTO login_details(fullname, emailAddress, username, password) 
+				$reg = "INSERT INTO register_details(fullname, emailAddress, username, password) 
 					values ('$fullname', '$emailAddress', '$username', '$hashedPassword')";
 
 				// performs the query against the database

@@ -1,11 +1,3 @@
-<?php
-	// start php session
-	session_start();
-	
-	//  get the username form validation.php and store it
-	$username = $_GET['username'];
-?>
-
 <!doctype html>
 <html lang="en">
 
@@ -21,7 +13,7 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-		<title>Personal Photos</title>		
+		<title>Login</title>
 	</head>
 
 	<body>
@@ -31,7 +23,7 @@
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 				
 				<a class="navbar-brand" href="../index.html"><img src="https://i.imgur.com/6Qv72Lj.png" width="220" height="40" alt=""></a>
-
+				
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
 					aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -80,71 +72,57 @@
 			    </div>
 			</nav>
 			<!-- End of navigation bar -->
-			
+
 			<div class="titles">
-				<br><br><p>PERSONAL PHOTOS<br><hr><br></p>
-			</div>	
-			
-			<div>
-				<div class="row no-gutters text-center">	
-					<div class="col-md-3">
-					</div>
-					<div class="col-md-6">
-						<?php echo 'Hey ' . $username . ', hope you enjoyed your special day as much as I did. Below is every photography that I took on the day. All the best and I hope I get to work for you again some day.'; ?>	
+				<br><br><p>LOGIN<br><hr></p>
+			</div>
 
+			<div class="card mb-6 border-0" style="max-width: 700px;" >
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card-body">
+							<h5 class="card-title">LOGIN<hr></h5>
+							<p class="card-text">
+								Login using your username and password to view all photographs of your special day.
+							</p>
+						</div>
 					</div>
-					<div class="col-md-3">
-					</div>
-				</div><br>
-
-				<div  class="gallery-container text-center">
-					<?php
-					
-						// To display all PHP errors
-						// https://www.tutorialspoint.com/how-to-display-errors-in-php-file
-						ini_set('display_errors', 1);
-						ini_set('display_startup_errors', 1);
-						error_reporting(E_ALL);
-				
-						// get database details (servername, username, password, dbname)
-						include_once 'dbh.php';
-		
-						// query
-						$sql = "SELECT cp.imgFullNameGallery 
-							FROM register_details ld 
-							JOIN customerPhotos cp 
-							ON '$username' = ld.username 
-							where ld.id = cp.userID;";
-		
-						// prepared statement
-						$stmt = mysqli_stmt_init($conn);
-		
-						// checks to see if the prepared statement works (the connection and above SELECT query)
-						if (!mysqli_stmt_prepare($stmt, $sql)) {
-							// error message
-							echo "SQL statement failed!";
-						} else {
-							// execute the sql statement
-							mysqli_stmt_execute($stmt);
-		
-							// get the result from the above statement
-							$result = mysqli_stmt_get_result($stmt);
-		
-
-							// loop through the rows in the database
-							//mysqli_fetch_assoc
-							while ($row = mysqli_fetch_assoc($result)) {
-								// display the results
-								// image, full name and user ID
-								echo '
-									<a>
-									<div style="background-image: url(../images/gallery/'.$row["imgFullNameGallery"].');"></div>
-								</a>';
-							}
-						}
-					?>
 				</div>
 			</div>
+			
+			<!-- Login starts here -->
+			<div class="card mb-6 border-0" style="max-width: 700px;" >
+				<div class="row">
+					<div class="col-md-2"></div>
+					<div class="col-md-8">
+						<div class="card-body">
+							<h5 class="card-title">Login<hr></h5>
+							<form action="../php/validation.php" method="post">
+								<div class="form-group">
+									<label> Username </label>
+									<input type="text" name="username" class="form-control" required>
+								</div>
+								<div class="form-group">
+									<label> Password </label>
+									<input type="password" name="password" class="form-control" required>
+								</div>
+								<button type="submit" name="submit" class="btn btn-light"> Login </button>
+							</form>
+
+                            <!-- Display Success Message -->
+                            <?php
+								if(isset($_GET["newpwd"])){
+									if($_GET["newpwd"] == "passwordupdated"){
+										echo '<p class="signupsuccess">Check your e-mail!</p>';
+									}
+								}
+                            ?>
+						</div>
+					</div>
+				</div>
+			</div>		
+			<!-- Login ends here -->
+			
 		</div>
 		
 		<!-- jQuery first > -->
@@ -155,6 +133,6 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 			crossorigin="anonymous"></script>
-
 	</body>
+
 </html>

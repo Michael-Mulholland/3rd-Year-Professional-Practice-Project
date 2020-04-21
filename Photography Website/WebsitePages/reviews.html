@@ -2,25 +2,34 @@
 <html lang="en">
 
 	<head>
+		<title>KIND WORDS</title>
+
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		
-		<!-- css -->
+		<!-- CSS stylesheet -->
 		<link rel="stylesheet" href="../css/styles.css">
+		<link rel="stylesheet" href="../css/faq-dropdown.css"> 
+		<link rel="stylesheet" href="../css/socialMedia.css">
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-		<title>Reviews</title>
+		<!-- Font-Awesome for social media icons -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	</head>
 
 	<body>
 
 		<div class="container-fluid">
+
+			<!-- Start of navigation bar -->
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-				<a class="navbar-brand" href="../index.html"><img src="https://i.imgur.com/T4CfOTi.jpg" width="40" height="40" alt=""> Photography Website</a>
+				
+				<a class="navbar-brand" href="../index.html"><img src="https://i.imgur.com/6Qv72Lj.png" width="220" height="40" alt=""></a>
+				
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
 					aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -40,15 +49,9 @@
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" 
 								aria-haspopup="true" aria-expanded="false">Information </a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item" href="reviews.html">Kind Words</a>
 								<a class="dropdown-item" href="pricingInfo.html">Pricing</a>
 								<a class="dropdown-item" href="faq.html">FAQ</a>
-							</div>
-						</li>
-
-						<li class="nav-item dropdown active">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">The Experience</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="reviews.html">Reviews</a>
 							</div>
 						</li>
 
@@ -58,64 +61,179 @@
 					</ul>
 				</div>
 				
-				<div class="collapse navbar-collapse" id="navbarNavDropdown" >
+				<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown" >
 					<ul class="navbar-nav">
 						<li class="nav-item">
 							<a class="nav-link" href="contact.html">Contact</a>
-						</li>				
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Photos</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">									
-								<a class="dropdown-item" href="register.html">Register</a>
-								<a class="dropdown-item" href="login.html">Login</a>
-								<a class="dropdown-item" href="logout.html">Logout</a>
-							</div>
+						</li>		
+						
+						<li class="nav-item">
+							<a class="nav-link" href="register.html">Register</a>
+						</li>	
+
+						<li class="nav-item">
+							<a class="nav-link" href="login.html">My Photos</a>
 						</li>
 					</ul>
 				</div>
 			</nav>
+			<!-- End of navigation bar -->
 			
 			<div class="titles">
-				<br><br><p>REVIEWS<br><hr></p>
+				<br><br><p>KIND WORDS<br><hr></p>
+			</div><br><br>
+
+			<!-- FAQ Collapsible Container - customer reviews -->
+			<div class="container-fluid text-center titles">
+				<h4>Here are just some of the lovely things people have said about me and my work.</h4><br><br>
+				<div class="row content">
+					<div class="col-sm-2">
+					</div>
+					<div class="col-sm-8">
+						<button class="accordion" style="font-size:17px">EMMA & BOBBY</button>
+						<div class="panel text-justify">
+							<p>Our photographs are a beautiful documentation of our wedding; he understood us as a 
+							couple and managed to reflect our style well. The photographs are expertly shot and 
+							capture all those small moments that you want to look back on and remember. He is 
+							brilliant and exceptionally professional. It will be the best decision you make.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="row content">
+					<div class="col-sm-2">
+					</div>
+					<div class="col-sm-8">
+						<button class="accordion" style="font-size:17px">HELENE & DANIEL</button>
+						<div class="panel text-justify">
+							<p>Thank you so much for amazing and gorgeous pictures! We are SO happy! We had chosen you 
+							again and again. We have already shown what you have sent us to family and friends, and 
+							everyone is absolutely overwhelmed by the moments captured and the mood of the pictures. 
+							No one has seen such beautiful pictures before!</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="row content">
+					<div class="col-sm-2">
+					</div>
+					<div class="col-sm-8">
+						<button class="accordion" style="font-size:17px">HANH & MARTE</button>
+						<div class="panel text-justify">
+							<p>We were so lucky to have Francis as a photographer at our wedding. It was a great experience 
+							from beginning to end. He had a professionalism and dedication that made us feel we were in the 
+							best hands. We are very happy that he was with us from morning to night. He has been capturing 
+							moments throughout the day, also fun things that we didn't even get along with. He manages to 
+							capture energy in his images while at the same time having a strange expression that we really 
+							liked. We are happy to recommend Francis to other bridal couples!</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="row content">
+					<div class="col-sm-2">
+					</div>
+					<div class="col-sm-8">
+						<button class="accordion" style="font-size:17px">RACHEL & MICHAEL</button>
+						<div class="panel text-justify">
+							<p>Thank you, thank you so much! Me and Michael are so happy we found you last year and the decision to have 
+							you as our engagement and wedding photographer is definitely one we are very proud of! We adore 
+							the photos, you have captured all of our favourite moments and our loved ones so beautifully. 
+							Those sunset photos are particularly surreal - we cannot believe they are photos of us! Once 
+							again, we are so privileged to have you share your immense talent and photograph our wedding!</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="row content">
+					<div class="col-sm-2">
+					</div>
+					<div class="col-sm-8">
+						<button class="accordion" style="font-size:17px">EMILY & DAVID</button>
+						<div class="panel text-justify">
+							<p>We could not have been happier with our decision to hire Francis as our wedding photographer. 
+							Leading up to the wedding, we had great communication over email. He was always responsive and 
+							answered any questions we had. On our wedding day, he was exactly what we needed. He was laid back 
+							and fun in his interactions with us. We felt so comfortable! He was present and captured all of the 
+							important moments of our wedding, but I didn’t feel like he was all up in our business (which we 
+							really appreciated!) He has an eye for scouting unique photo spots and I can’t wait to see how all 
+							of them turn out. Our photos so far look like a fairy tale – he somehow made us look elegant and 
+							not awkward at all, which I imagine was no easy feat… my husband and I cannot recommend him enough!</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="row content">
+					<div class="col-sm-2">
+					</div>
+					<div class="col-sm-8">
+						<button class="accordion" style="font-size:17px">GABY & PAUL</button>
+						<div class="panel text-justify">
+							<p>There are no words to describe how wonderful Francis is not only as a photographer and artist but as a 
+							person. From day 1 – Francis was so genuine and kind – it felt like we’d been lifelong friends. Francis 
+							photography style is so easy and natural – it’s just a joy to photograph with him. My husband, Paul and 
+							I aren’t ones to take many pictures but Francis snapped the most incredible photos in the stolen moments. 
+							Just after the wedding, Francis shared a preview of the photos and just with those photos – I would have 
+							been over the moon happy. I’m not sure how he captured every moment but he did and for that we’re eternally 
+							grateful. You can tell the care and attention he puts into the entire album. It really is the most incredible 
+							gift. If Francis available – breathe a sigh of relief – because you just hit the wedding jackpot!! Best 
+							decision we could have ever made. Thank you from the bottom of our hearts, Francis!!</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="row content">
+					<div class="col-sm-2">
+					</div>
+					<div class="col-sm-8">
+						<button class="accordion" style="font-size:17px">LUCY & DEREK</button>
+						<div class="panel text-justify">
+							<p>Francis was a delight to work with from day one! We were planning a wedding in County Louth from County 
+							Mayo which is never an easy task. Francis's efficient and professional communication skills instantly 
+							won us over. We didn’t meet Francis until the day of our wedding. He was well prepared and confidant 
+							that it really put everyone at ease, he was a true pleasure to have around! We couldn’t be happier with 
+							the way our wedding photos turned out. They are everything and more than we hoped for. We will 
+							definitely be hiring him if we ever need a family photo-shoot in the future. If you are thinking of 
+							hiring Francis look at his portfolio. It is a true representation of his work. He finds a way to shoot 
+							each wedding in his own style, while capturing unique moments that are true to the day.</p>
+						</div>
+					</div>
+				</div>
 			</div>
-			
+			<!-- End of FAQ Collapsible Container -->
+	
+			<!-- message with button to get in contact -->
 			<div class="card mb-6 border-0" style="max-width: 700px;" >
 				<div class="row">
 					<div class="col-md-12">
 						<div class="card-body">
-							<h5 class="card-title">Here are are just some of the lovely things people have said about us!.<hr></h5>
-							<p class="card-text"></p>
+							<h5 class="card-title">INTERESTED?<hr></h5>
+							<p class="card-text">Don't hesitate, get in touch now!</p>
+							<a href="contact.html" class="btn btn-light">Let's Talk</a>
 						</div>
 					</div>
-				</div>
-			</div>
-			
-			<div class="card mb-3">
-			
-				<div class="row no-gutters">
-					<div class="col-md-2">
-					</div>
-					<div class="col-md-8">
-						<div class="card-body">	
-							<p class="card-text">Our photographs are a beautiful documentation of our wedding; he understood us as a couple and managed to reflect our style well. The photographs are expertly shot and capture all those small moments that you want to look back on and remember. He is brilliant and exceptionally professional. It will be the best decision you make.</p>
-							<p>Emma & Bobby Anacoote-Parmar, Dundalk Town Hall Wedding</p><hr><br>
-							
-						</div>									
-					</div>
-				</div>
-				
-				<div class="card mb-6 border-0" style="max-width: 700px;" >
-					<div class="row">
-						<div class="col-md-12">
-							<div class="card-body">
-								<h5 class="card-title">INTERESTED?<hr></h5>
-								<p class="card-text">Don't hesitate, get in touch now!</p>
-								<a href="contact.html" class="btn btn-light">Let's Talk</a>
-							</div>
-						</div>
-					</div>							
-				</div>	
+				</div>							
 			</div>	
+				
+			<!-- Social Media Icons -->
+			<div class="container-fluid text-center">    
+				<div class="row content">
+					<div class="col-sm-3">
+					</div>
+					<div class="col-sm-2"> 
+						<a href="https://www.facebook.com/micmul06" target="_blank" class="fa fa-facebook"></a>
+					</div>
+					<div class="col-sm-2"> 
+						<a href="https://twitter.com/micmul13" target="_blank" class="fa fa-twitter"></a>
+					</div>
+					<div class="col-sm-2"> 
+						<a href="https://www.instagram.com/micmul061/" target="_blank" class="fa fa-instagram"></a>
+					</div>
+					<div class="col-sm-3">
+					</div>
+				</div>
+				<br><br>
+			</div>
 			
 		</div>
 
@@ -127,6 +245,8 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 			crossorigin="anonymous"></script>
-	</body>
 
+		<!-- Script to show the images on scroll -->
+		<script src="../javascripts/faq-dropdown.js"></script>
+	</body>
 </html>

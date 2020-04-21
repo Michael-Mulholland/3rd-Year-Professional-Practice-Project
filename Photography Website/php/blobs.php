@@ -3,7 +3,7 @@
 	// Enables or disables internal report functions
 	mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-	// 
+	// connect to the database
 	$var = mysqli_connect("localhost", "root", "root");
 	
 	// this function is used to change the default database for the connection.
